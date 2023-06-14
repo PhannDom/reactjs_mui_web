@@ -1,0 +1,30 @@
+# Get all books
+GET http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+###
+
+# Create a new book
+POST http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "{{$guid}}",
+    "title": "Harry Potter"
+}
+
+###
+
+# Update a book
+PUT http://localhost:3001/books/40805d59-5342-4e47-9540-6a05317a9881 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Harry Potter Updated"
+}
+
+###
+
+# Delete a book
+DELETE http://localhost:3001/books/40805d59-5342-4e47-9540-6a05317a9881 HTTP/1.1
+Content-Type: application/json

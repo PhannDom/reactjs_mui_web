@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "title": "Sea",
+      "id": "d29d8b60-6369-4ee5-91ba-86ac9fc68f9a"
+    },
+    {
+      "title": "Dog",
+      "id": "970c8900-ee47-4284-af65-e3ab6008a34a"
+    },
+    {
+      "title": "Castle",
+      "id": "6b3ea200-3df9-4f14-ae06-9579952139ee"
+    }
+  ]
+}
