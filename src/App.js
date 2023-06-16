@@ -6,9 +6,12 @@ import BookCreate from "./pages/Book/BookCreate";
 import BookList from "./pages/Book/BookList";
 import { Stack } from "@mui/material";
 import BooksContext from "./context/books";
-import Accordion from './components/Accordion';
+import Accordion from "./components/Accordion";
+import Dropdown from "./components/Dropdown";
 
 function App() {
+  const [selection, setSelection] = useState(null);
+
   const items = [
     {
       id: "l2kj5",
@@ -30,6 +33,10 @@ function App() {
     },
   ];
 
+  const options = [
+    { label: "Red", value: "red" },
+    { label: "Yellow", value: "yellow" },
+  ];
   const [images, setImages] = useState([]);
 
   const { fetchBooks } = useContext(BooksContext);
@@ -44,14 +51,25 @@ function App() {
     setImages(result);
   };
 
+  const handleSelect = (option) => {
+    setSelection(option);
+  };
+
   return (
-    <Stack direction="column" spacing={2} justifyContent={"center"}>
-      <SearchBar onSubmit={handleSubmit} />
-      <ImageList images={images} />
-      <BookCreate />
-      <BookList />
-      <Accordion items={items} />
-    </Stack>
+    <div>
+      <Stack direction="column" spacing={2} justifyContent={"center"}>
+        <SearchBar onSubmit={handleSubmit} />
+        <ImageList images={images} />
+        <BookCreate />
+        <BookList />
+        <Accordion items={items} />
+      </Stack>
+
+      <div className="flex">
+        <Dropdown options={options} value={selection} onChange={handleSelect} />
+        <Dropdown options={options} value={selection} onChange={handleSelect} />
+      </div>
+    </div>
   );
 }
 
